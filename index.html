@@ -38,21 +38,21 @@ document.getElementById("travelForm").addEventListener("submit", function(e){
     amount: document.getElementById("amount").value
   };
 
-  fetch("https://script.google.com/macros/s/AKfycbz18iX23MyrewKGyta9prK_FgWVfCqu35qzECA2l9QQDdTzODILdQ1PWXL43q_PRo9x/exec", {
+  fetch("https://script.google.com/macros/s/AKfycbynWETzjrFVYkzX3vA5jkouWFmOzgzt25YBDWrjoeWda6dtS93Fnb2f3YJ4p_S8FwOdhw/exec", {
     method: "POST",
+    mode: "no-cors",
+    headers: {
+      "Content-Type": "application/json"
+    },
     body: JSON.stringify(data)
   })
-  .then(res => res.text())
-  .then(response => {
+  .then(() => {
     document.getElementById("message").innerHTML = "Form Submitted Successfully!";
     document.getElementById("travelForm").reset();
   })
-  .catch(error => {
+  .catch(() => {
     document.getElementById("message").innerHTML = "Error submitting form!";
   });
 
 });
 </script>
-
-</body>
-</html>
